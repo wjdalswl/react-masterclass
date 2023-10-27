@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { Suspense, useState } from 'react';
 import { GlobalStyle } from './theme/GlobalStyle';
 import { lightheme, darkthem } from './theme/theme';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [theme, setTheme] = useState(lightheme);
@@ -17,15 +18,17 @@ function App() {
 
   return (
     <>
-      <button onClick={toggleTheme}>Toggle Theme</button>{' '}
-      {theme === darkthem ? '🌚' : '🌝'}
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Suspense fallback={<div>...loading</div>}>
-          <Router />
-        </Suspense>
-      </ThemeProvider>
-      <ReactQueryDevtools initialIsOpen={true} />
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <button onClick={toggleTheme}>Toggle Theme</button>{' '}
+        {theme === darkthem ? '🌚' : '🌝'}
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Suspense fallback={<div>...loading</div>}>
+            <Router />
+          </Suspense>
+        </ThemeProvider>
+        <ReactQueryDevtools initialIsOpen={true} />
+      </BrowserRouter>
     </>
   );
 }

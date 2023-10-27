@@ -71,11 +71,11 @@ const Price: React.FC<PriceProps> = ({ coinId }) => {
             {
               name: 'Price (USD)',
               data: [
-                priceData?.quotes?.USD?.percent_change_1h ?? 0,
-                priceData?.quotes?.USD?.percent_change_24h ?? 0,
-                priceData?.quotes?.USD?.percent_change_7d ?? 0,
-                priceData?.quotes?.USD?.percent_change_30d ?? 0,
-                priceData?.quotes?.USD?.percent_change_1y ?? 0,
+                priceData?.quotes.USD.percent_change_1h ?? 0,
+                priceData?.quotes.USD.percent_change_24h ?? 0,
+                priceData?.quotes.USD.percent_change_7d ?? 0,
+                priceData?.quotes.USD.percent_change_30d ?? 0,
+                priceData?.quotes.USD.percent_change_1y ?? 0,
               ],
             },
           ]}
